@@ -73,6 +73,7 @@ def mostrar_pagina_rfr():
     end_date = st.sidebar.date_input('Fecha de fin', datetime(2023, 1, 1))
 
     datos, datos_originales = obtener_datos_financieros(ticker, start_date, end_date)
+    datos = datos.copy()  # Clonamos el DataFrame para evitar mutaciones del cache
 
     st.subheader('Datos Financieros')
     st.write(datos)
