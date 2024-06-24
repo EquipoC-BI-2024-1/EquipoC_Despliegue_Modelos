@@ -25,7 +25,7 @@ def mostrar_pagina_svc():
     start_date = st.sidebar.date_input('Fecha de Inicio', pd.to_datetime('2020-01-01'))
     end_date = st.sidebar.date_input('Fecha de Fin', pd.to_datetime('2023-01-01'))
 
-    data = load_data(ticker, start_date, end_date)
+    data = load_data(ticker, start_date, end_date).copy()
 
     st.subheader('Precios Reales')
     st.line_chart(data['Price'])
